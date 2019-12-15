@@ -12,6 +12,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(userRoutes);
 
-app.listen(3000, () => {
-    console.log("Connected to localhost:3000");
+app.listen(8000, () => {
+    console.log("Connected to localhost:8000");
 });
