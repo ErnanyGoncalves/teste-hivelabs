@@ -8,8 +8,8 @@ module.exports = class User {
         this.birthdate = birthdate;
         this.gender = gender;
         this.is_admin = is_admin; 
-        this.created_at = created_at; // Talvez precise tirar
-        this.updated_at = updated_at;  // Talve precise tirar
+        this.created_at = created_at; 
+        this.updated_at = updated_at;
     }
 
     createUser() {
