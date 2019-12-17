@@ -13,7 +13,6 @@ app.route("/user/:id")
 
 app.route("/user/new").post(userController.createUser); // Cadastro usuário
 
-app.route("/user/:id/edit").get(userController.getUser); // Visalização - Modo de edição
 
 
 module.exports = app;

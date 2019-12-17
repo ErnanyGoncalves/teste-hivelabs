@@ -22,7 +22,7 @@ exports.createUser = (req, res, next) => {
     const birthdate = req.body.birthdate;
     const gender = req.body.gender;
     const isAdmin = req.body.is_admin;
-    console.log("BODY:", req.body);
+
     const user = new User(null, name, email, birthdate, gender, isAdmin, null, null);
     user.createUser()
         .then(() => {
