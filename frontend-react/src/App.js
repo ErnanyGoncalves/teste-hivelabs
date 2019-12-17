@@ -1,27 +1,23 @@
 import React from 'react';
 
 import api from './services/api';
-import Routes from './services/routes';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Header from './components/Header';
-import EmptyTable from './components/EmptyTable';
-import Table from './components/Table';
-import Form from './components/Form';
-
+import Header from "./components/Header";
+import Table from "./components/Table";
+import EmptyTable from "./components/EmptyTable";
+import Form from "./components/Form";
 
 export default class App extends React.Component {
 
   constructor(props) {
-    //n vem nda de index.js
     super(props);
-    console.log(props);
   }
 
   state = {
     users: [],
     usersLength: 0
   }
-
 
   getUsers = async () => {
     const response = await api.get('');
@@ -32,13 +28,26 @@ export default class App extends React.Component {
     this.getUsers();
   }
 
+  handler = () => {
+    this.getUsers();
+  }
+  
   render() {
     return (
-      <div>
-        <Routes usersLength={this.state.usersLength} users={this.state.users} />
-        {/* {(this.state.users.length > 0) ? <Table users={this.state.users} /> : <EmptyTable />}
-          <Form userid={22} /> */}
-      </div>
+      <BrowserRouter>
+        <Header />
+        <div className="container">
+          <Switch>
+            <Route exact path="/" render={() => (
+              this.state.usersLength > 0 ?
+                <Table users={this.state.users} handler={this.handler} />
+                : <EmptyTable />)
+            } />
+            <Route path="/user/new" component={Form} render={() => <Form {...this.props} handler={this.handler} />} />
+            <Route path="/user/:id/edit" component={Form} render={() => <Form handler={this.handler} />} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }

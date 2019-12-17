@@ -11,6 +11,7 @@ const UserModal = (props) => {
             console.log(res);
         });
         $('#user-modal-' + i).modal('hide');
+        
     }
 
     return (
