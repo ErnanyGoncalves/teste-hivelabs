@@ -6,11 +6,6 @@ import UserModal from './UserModal';
 
 export default class Table extends React.Component {
 
-    // constructor(props) {
-    //     super("Table", props);
-    //     console.log(props);
-    // }
-
     state = {
         user: null
     }
@@ -24,8 +19,6 @@ export default class Table extends React.Component {
 
     showUser = async (i) => {
         const response = await api.get('/user/' + i).then(res => {
-            console.log(res.data[0]);
-            console.log(this);
             this.setState({ user: res.data[0] });
         });
     }
@@ -33,6 +26,7 @@ export default class Table extends React.Component {
     render() {
         return (
             <div>
+                <h1 className="mt-5 mb-5">Registered Users</h1>
                 <table className="table table-striped">
                     <thead>
                         <tr>

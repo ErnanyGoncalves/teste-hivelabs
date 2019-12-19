@@ -13,12 +13,10 @@ module.exports = class User {
     }
 
     createUser() {
-        console.log(`INSERT INTO users (name,email,birthdate,gender,is_admin) VALUES ('${this.name}', '${this.email}', '${this.birthdate}', '${this.gender}', ${this.is_admin})`);
         return db.execute(`INSERT INTO users (name,email,birthdate,gender,is_admin) VALUES ('${this.name}', '${this.email}', '${this.birthdate}', '${this.gender}', ${this.is_admin})`);
     }
 
     editUser(id) {
-        console.log(`UPDATE users SET name = '${this.name}', email = '${this.email}', birthdate = '${this.birthdate}', gender = '${this.gender}', is_admin = ${this.is_admin} WHERE id = ${id}`);
         return db.execute(`UPDATE users SET name = '${this.name}', email = '${this.email}', birthdate = '${this.birthdate}', gender = '${this.gender}', is_admin = ${this.is_admin} WHERE id = ${id}`);
     }
 

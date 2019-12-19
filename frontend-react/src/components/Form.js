@@ -15,7 +15,6 @@ export default class Form extends React.Component {
     }
 
     componentDidMount() {
-        console.log("idparam", this.props.match.params.id);
         if (typeof this.props.match.params.id !== "undefined") {
             this.setState({ editMode: true });
             this.getUser();
@@ -76,7 +75,7 @@ export default class Form extends React.Component {
             console.log(res);
         });
         this.props.history.push("/");
-        return this.props.handler();
+        // return this.props.handler();
     }
 
     render() {
@@ -100,7 +99,7 @@ export default class Form extends React.Component {
                         <div className="col-4">
                             <label htmlFor="user-gender">Gender</label>
                             <select id="user-gender" className="custom-select">
-                                {this.state.user.gender === "male" ?
+                                {this.state.user.gender === "Male" ?
                                     <React.Fragment>
                                         <option defaultValue="male">Male</option>
                                         <option value="female">Female</option>
